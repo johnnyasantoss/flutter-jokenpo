@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'Moves.dart';
+import '../enums/JokenPoMoves.dart';
 
 class MoveViewer extends StatelessWidget {
-  final Moves move;
+  final JokenPoMoves move;
   final bool isWinner;
 
   MoveViewer({@required this.move, @required this.isWinner, Key key})
@@ -14,13 +14,13 @@ class MoveViewer extends StatelessWidget {
     String imagePath;
 
     switch (move) {
-      case Moves.Rock:
+      case JokenPoMoves.Rock:
         imagePath = "assets/imgs/pedra.png";
         break;
-      case Moves.Paper:
+      case JokenPoMoves.Paper:
         imagePath = "assets/imgs/papel.png";
         break;
-      case Moves.Scissor:
+      case JokenPoMoves.Scissor:
         imagePath = "assets/imgs/tesoura.png";
         break;
       default:

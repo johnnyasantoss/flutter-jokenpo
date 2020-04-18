@@ -1,0 +1,1 @@
+enum JokenPoMoves { None, Rock, Paper, Scissor }

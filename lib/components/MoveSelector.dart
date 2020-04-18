@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './Moves.dart';
+import '../enums/JokenPoMoves.dart';
 
-typedef MoveCallback = void Function(Moves move);
+typedef MoveCallback = void Function(JokenPoMoves move);
 
 class MoveSelector extends StatelessWidget {
   final MoveCallback onMoveChanged;
@@ -18,19 +18,19 @@ class MoveSelector extends StatelessWidget {
         children: <Widget>[
           RaisedButton(
             onPressed: () {
-              _setMove(Moves.Paper);
+              _setMove(JokenPoMoves.Paper);
             },
             child: Text("Papel"),
           ),
           RaisedButton(
             onPressed: () {
-              _setMove(Moves.Rock);
+              _setMove(JokenPoMoves.Rock);
             },
             child: Text("Pedra"),
           ),
           RaisedButton(
             onPressed: () {
-              _setMove(Moves.Scissor);
+              _setMove(JokenPoMoves.Scissor);
             },
             child: Text("Tesoura"),
           )
@@ -39,7 +39,7 @@ class MoveSelector extends StatelessWidget {
     );
   }
 
-  _setMove(Moves move) {
+  _setMove(JokenPoMoves move) {
     this.onMoveChanged(move);
   }
 }

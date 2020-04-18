@@ -1,12 +1,11 @@
 import 'dart:math';
 
-import 'components/Moves.dart';
-
-enum Winner { None, PlayerOne, PlayerTwo, Draw }
+import 'enums/JokenPoMoves.dart';
+import './enums/Winner.dart';
 
 abstract class JokenPo {
-  Moves playerOneMove = Moves.None;
-  Moves playerTwoMove = Moves.None;
+  JokenPoMoves playerOneMove = JokenPoMoves.None;
+  JokenPoMoves playerTwoMove = JokenPoMoves.None;
 
   Winner _winner = Winner.None;
 
@@ -15,8 +14,8 @@ abstract class JokenPo {
   bool get isDone => winner != Winner.None;
 
   void reset() {
-    playerOneMove = Moves.None;
-    playerTwoMove = Moves.None;
+    playerOneMove = JokenPoMoves.None;
+    playerTwoMove = JokenPoMoves.None;
     _winner = Winner.None;
   }
 
@@ -35,9 +34,12 @@ abstract class JokenPo {
       return Winner.Draw;
     }
 
-    if ((playerOneMove == Moves.Rock && playerTwoMove == Moves.Scissor) ||
-        (playerOneMove == Moves.Scissor && playerTwoMove == Moves.Paper) ||
-        (playerOneMove == Moves.Paper && playerTwoMove == Moves.Rock)) {
+    if ((playerOneMove == JokenPoMoves.Rock &&
+            playerTwoMove == JokenPoMoves.Scissor) ||
+        (playerOneMove == JokenPoMoves.Scissor &&
+            playerTwoMove == JokenPoMoves.Paper) ||
+        (playerOneMove == JokenPoMoves.Paper &&
+            playerTwoMove == JokenPoMoves.Rock)) {
       return Winner.PlayerOne;
     }
 
@@ -45,17 +47,19 @@ abstract class JokenPo {
   }
 
   bool checkCanPlay() {
-    return !isDone && playerOneMove != Moves.None && playerTwoMove != Moves.None;
+    return !isDone &&
+        playerOneMove != JokenPoMoves.None &&
+        playerTwoMove != JokenPoMoves.None;
   }
 }
 
 mixin JokenPoPlayerTwoAI on JokenPo {
   final Random random = new Random();
 
-  Moves generateAIMove() {
-    var index = random.nextInt(Moves.values.length - 1) + 1;
+  JokenPoMoves generateAIMove() {
+    var index = random.nextInt(JokenPoMoves.values.length - 1) + 1;
 
-    return Moves.values[index];
+    return JokenPoMoves.values[index];
   }
 }
 

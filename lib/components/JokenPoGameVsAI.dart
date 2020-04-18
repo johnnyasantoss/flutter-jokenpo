@@ -6,7 +6,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../JokenPo.dart';
 import './MoveSelector.dart';
 import './MoveViewer.dart';
-import 'Moves.dart';
+import '../enums/JokenPoMoves.dart';
+import '../enums/Winner.dart';
 
 class JokenPoGameVsAI extends StatefulWidget {
   JokenPoGameVsAI({Key key, this.title}) : super(key: key);
@@ -67,7 +68,7 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
   }
 
   Future<bool> _playGame() async {
-    if (game.isDone || game.playerOneMove == Moves.None) {
+    if (game.isDone || game.playerOneMove == JokenPoMoves.None) {
       await Fluttertoast.showToast(
           msg: "Você precisa selecionar sua jogada antes.",
           toastLength: Toast.LENGTH_SHORT

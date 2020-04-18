@@ -1,1 +1,0 @@
-enum Moves { None, Rock, Paper, Scissor }
