@@ -18,11 +18,11 @@ class MoveSelector extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           MoveButton(
-            move: JokenPoMoves.Paper,
+            move: JokenPoMoves.Rock,
             onPressed: _setMove,
           ),
           MoveButton(
-            move: JokenPoMoves.Rock,
+            move: JokenPoMoves.Paper,
             onPressed: _setMove,
           ),
           MoveButton(
