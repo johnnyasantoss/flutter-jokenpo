@@ -18,6 +18,7 @@ environment:
 
 dependencies:
   fluttertoast: ^4.0.1
+  flutter_launcher_icons: ^0.7.2
   flutter:
     sdk: flutter
 
@@ -29,6 +30,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+# See more here: https://github.com/fluttercommunity/flutter_launcher_icons#1-setup-the-config-file
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/imgs/tesoura.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
