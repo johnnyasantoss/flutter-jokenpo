@@ -11,22 +11,7 @@ class MoveViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String imagePath;
-
-    switch (move) {
-      case JokenPoMoves.Rock:
-        imagePath = "assets/imgs/pedra.png";
-        break;
-      case JokenPoMoves.Paper:
-        imagePath = "assets/imgs/papel.png";
-        break;
-      case JokenPoMoves.Scissor:
-        imagePath = "assets/imgs/tesoura.png";
-        break;
-      default:
-        imagePath = "assets/imgs/nenhum.png";
-        break;
-    }
+    var imagePath = this.move.getImage();
 
     return ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(50)),

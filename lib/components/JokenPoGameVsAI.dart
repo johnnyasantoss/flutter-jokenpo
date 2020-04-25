@@ -33,22 +33,34 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Text(
+                _getWinnerText(),
+                style: Theme.of(context).textTheme.headline,
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 MoveViewer(
                   move: game.playerOneMove,
-                  isWinner: game.winner == Winner.PlayerOne || game.winner == Winner.Draw,
+                  isWinner: game.winner == Winner.PlayerOne ||
+                      game.winner == Winner.Draw,
                 ),
                 MoveViewer(
                   move: game.playerTwoMove,
-                  isWinner: game.winner == Winner.PlayerTwo || game.winner == Winner.Draw,
+                  isWinner: game.winner == Winner.PlayerTwo ||
+                      game.winner == Winner.Draw,
                 ),
               ],
             ),
-            Text(
-              "Selecione sua jogada",
-              style: Theme.of(context).textTheme.headline,
+            Padding(
+              padding: const EdgeInsets.only(top: 32, bottom: 16),
+              child: Text(
+                "Selecione sua jogada",
+                style: Theme.of(context).textTheme.headline,
+              ),
             ),
             MoveSelector(onMoveChanged: (move) {
               setState(() {
@@ -71,8 +83,7 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
     if (game.isDone || game.playerOneMove == JokenPoMoves.None) {
       await Fluttertoast.showToast(
           msg: "Você precisa selecionar sua jogada antes.",
-          toastLength: Toast.LENGTH_SHORT
-      );
+          toastLength: Toast.LENGTH_SHORT);
       return false;
     }
 
@@ -81,5 +92,18 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
     });
 
     return true;
+  }
+
+  String _getWinnerText() {
+    switch (this.game.winner) {
+      case Winner.Draw:
+        return "Empate!";
+      case Winner.PlayerOne:
+        return "Você venceu!";
+      case Winner.PlayerTwo:
+        return "O Computador ganhou!";
+      default:
+        return "";
+    }
   }
 }

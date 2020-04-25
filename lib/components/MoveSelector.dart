@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jokenpo/components/MoveButton.dart';
 
 import '../enums/JokenPoMoves.dart';
 
@@ -16,24 +17,18 @@ class MoveSelector extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
-            onPressed: () {
-              _setMove(JokenPoMoves.Paper);
-            },
-            child: Text("Papel"),
+          MoveButton(
+            move: JokenPoMoves.Paper,
+            onPressed: _setMove,
           ),
-          RaisedButton(
-            onPressed: () {
-              _setMove(JokenPoMoves.Rock);
-            },
-            child: Text("Pedra"),
+          MoveButton(
+            move: JokenPoMoves.Rock,
+            onPressed: _setMove,
           ),
-          RaisedButton(
-            onPressed: () {
-              _setMove(JokenPoMoves.Scissor);
-            },
-            child: Text("Tesoura"),
-          )
+          MoveButton(
+            move: JokenPoMoves.Scissor,
+            onPressed: _setMove,
+          ),
         ],
       ),
     );
