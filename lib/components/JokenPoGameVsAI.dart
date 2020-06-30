@@ -37,7 +37,7 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
               padding: const EdgeInsets.only(bottom: 16),
               child: Text(
                 _getWinnerText(),
-                style: Theme.of(context).textTheme.headline,
+                style: Theme.of(context).textTheme.headline5,
               ),
             ),
             Row(
@@ -59,7 +59,7 @@ class _JokenPoGameVsAIState extends State<JokenPoGameVsAI> {
               padding: const EdgeInsets.only(top: 32, bottom: 16),
               child: Text(
                 "Selecione sua jogada",
-                style: Theme.of(context).textTheme.headline,
+                style: Theme.of(context).textTheme.headline5,
               ),
             ),
             MoveSelector(onMoveChanged: (move) {
